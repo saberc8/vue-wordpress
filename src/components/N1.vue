@@ -131,13 +131,13 @@ h1::after {
   display: block;
   margin: auto;
   background-size: cover;
-  background-position: 0px 0px;
+  background-position: 0 140px;
 }
 .n1-bg-enter {
-  animation: enter 290ms steps(26) both;
+  animation: enter 400ms steps(25) both;
 }
 .n1-bg-leave {
-  animation: leave 290ms steps(26) both;
+  animation: leave 400ms steps(25) both;
 }
 .n1-content ul {
   margin: 0 auto;
@@ -159,19 +159,25 @@ h1::after {
   margin-bottom: 40px;
 }
 @keyframes enter {
-  from {
-    background-position: 0 0;
+  0% {
+    background-position: 0 140px;
   }
-  to {
+  90% {
+    background-position: 0 3640px;
+  }
+  100% {
     background-position: 0 3640px;
   }
 }
 @keyframes leave {
-  from {
+  0% {
     background-position: 0 3640px;
   }
-  to {
-    background-position: 0 0px;
+  90% {
+    background-position: 0 140px;
+  }
+  100% {
+    background-position: 0 140px;
   }
 }
 </style>
