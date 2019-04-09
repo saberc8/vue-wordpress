@@ -89,7 +89,8 @@ export default {
       this.currentLeave = index;
       this.currentEnter = null;
     }
-  }
+  },
+  
 };
 </script>
 
@@ -150,15 +151,12 @@ h1::after {
   display: block;
 }
 .n1-content ul {
-  margin: 0 auto;
-  width: 840px;
+  margin: 20px auto;
+  width: 1180px;
 }
 .n1-content ul li {
   float: left;
-}
-.n1-content ul li::after {
-  content: "";
-  clear: both;
+  width: 194px;
 }
 .n1-content ul li:hover {
   font-weight: 700;
