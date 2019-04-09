@@ -4,11 +4,15 @@
     <p class="n1-info">30年技术沉淀，50+产品服务，助力企业智能转型</p>
     <div class="n1-content">
       <ul>
-        <li>
+        <li v-for="(item,index) of content" :key="index">
           <div
             class="n1-bg"
-            :style="{backgroundImage:'url('+require('../assets/images/n1-1.png')+')'}"
+            :style="{backgroundImage:'url('+item.imgUrl+')'}"
+            :class="{ 'n1-bg-enter':  currentEnter===index ,'n1-bg-leave': currentLeave===index}"
+            @mouseenter="imgMoveStart(index)"
+            @mouseout="imgMoveEnd(index)"
           ></div>
+          <p class="n1-bg-caption">{{item.caption}}</p>
         </li>
       </ul>
     </div>
@@ -17,7 +21,73 @@
 
 <script>
 export default {
-  name: "n1"
+  name: "n1",
+  data() {
+    return {
+      currentEnter: null,
+      currentLeave: null,
+      content: [
+        {
+          imgUrl: require("../assets/images/n1-1.png"),
+          caption: "大数据"
+        },
+        {
+          imgUrl: require("../assets/images/n1-2.png"),
+          caption: "云计算"
+        },
+        {
+          imgUrl: require("../assets/images/n1-3.png"),
+          caption: "人工智能"
+        },
+        {
+          imgUrl: require("../assets/images/n1-4.png"),
+          caption: "数据加工"
+        },
+        {
+          imgUrl: require("../assets/images/n1-5.png"),
+          caption: "人工智能"
+        },
+        {
+          imgUrl: require("../assets/images/n1-6.png"),
+          caption: "云计算"
+        },
+        {
+          imgUrl: require("../assets/images/n1-7.png"),
+          caption: "人工智能"
+        },
+        {
+          imgUrl: require("../assets/images/n1-8.png"),
+          caption: "云计算"
+        },
+        {
+          imgUrl: require("../assets/images/n1-9.png"),
+          caption: "人工智能"
+        },
+        {
+          imgUrl: require("../assets/images/n1-10.png"),
+          caption: "数据加工"
+        },
+        {
+          imgUrl: require("../assets/images/n1-11.png"),
+          caption: "人工智能"
+        },
+        {
+          imgUrl: require("../assets/images/n1-12.png"),
+          caption: "云计算"
+        }
+      ]
+    };
+  },
+  methods: {
+    imgMoveStart(index) {
+      this.currentEnter = index;
+      this.currentLeave = null;
+    },
+    imgMoveEnd(index) {
+      this.currentLeave = index;
+      this.currentEnter = null;
+    }
+  }
 };
 </script>
 
@@ -61,6 +131,48 @@ h1::after {
   display: block;
   margin: auto;
   background-size: cover;
+  background-position: 0px 0px;
+}
+.n1-bg-enter {
+  animation: enter 290ms steps(26) both;
+}
+.n1-bg-leave {
+  animation: leave 290ms steps(26) both;
+}
+.n1-content ul {
+  margin: 0 auto;
+  width: 840px;
+}
+.n1-content ul li {
+  float: left;
+}
+.n1-content ul li:hover {
+  font-weight: 700;
+}
+.n1-bg-caption {
+  position: relative;
+  display: inline-block;
+  font-size: 18px;
+  color: #383e63;
+  line-height: 25px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+@keyframes enter {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 3640px;
+  }
+}
+@keyframes leave {
+  from {
+    background-position: 0 3640px;
+  }
+  to {
+    background-position: 0 0px;
+  }
 }
 </style>
 
