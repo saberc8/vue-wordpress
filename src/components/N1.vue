@@ -1,7 +1,7 @@
 <template>
   <div class="n1">
-    <h1 class="n1-title">全链路服务</h1>
-    <p class="n1-info">30年技术沉淀，50+产品服务，助力企业智能转型</p>
+    <h1 class="n1-title">{{title}}</h1>
+    <p class="n1-info">{{info}}</p>
     <div class="n1-content">
       <ul>
         <li v-for="(item,index) of content" :key="index">
@@ -26,6 +26,8 @@ export default {
     return {
       currentEnter: null,
       currentLeave: null,
+      title: "非响应式组件N1",
+      info: "非响应式组件N1,非响应式组件N1,非响应式组件N1",
       content: [
         {
           imgUrl: require("../assets/images/n1-1.png"),
@@ -139,12 +141,24 @@ h1::after {
 .n1-bg-leave {
   animation: leave 400ms steps(25) both;
 }
+/* .n1-content {
+  overflow:hidden;
+} */
+.n1-content::after {
+  content: "";
+  clear: both;
+  display: block;
+}
 .n1-content ul {
   margin: 0 auto;
   width: 840px;
 }
 .n1-content ul li {
   float: left;
+}
+.n1-content ul li::after {
+  content: "";
+  clear: both;
 }
 .n1-content ul li:hover {
   font-weight: 700;
