@@ -2,7 +2,7 @@
 
 基于方便的原则  每个组件插入即可用
 
-> 引入第三方组件库包括normalize.css swiper4
+> 引入第三方组件库包括normalize.css vue-awesome-swiper
 
 ### 文件名称说明
 

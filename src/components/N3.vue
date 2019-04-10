@@ -5,8 +5,12 @@
     <div class="n3-content">
       <ul>
         <li v-for="(item,index) of content" :key="index">
-          <div class="n3-bg" :style="{backgroundImage:'url('+item.imgUrl+')'}"></div>
-          <p class="n3-bg-caption">{{item.caption}}</p>
+          <div class="n3-bg" :style="{backgroundImage:'url('+item.imgUrl+')'}">
+            <div class="n3-masking">
+              <p class="n3-caption">{{item.caption}}</p>
+              <p class="n3-desc">{{item.desc}}</p>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
@@ -25,49 +29,56 @@ export default {
       content: [
         {
           imgUrl: require("../assets/images/n3-1.png"),
-          caption: "大数据"
+          caption: "大数据",
+          desc:
+            "今目标通过主线、文档、合作伙伴等应用，实现了建筑企业流程标准可控、项目远程管理、多方有效协同的需求，确保优秀项目经验的积累和传承。"
         },
         {
           imgUrl: require("../assets/images/n3-2.png"),
-          caption: "云计算"
+          caption: "云计算",
+          desc:
+            "今目标通过主线、文档、合作伙伴等应用，实现了建筑企业流程标准可控、项目远程管理、多方有效协同的需求，确保优秀项目经验的积累和传承。"
         },
         {
           imgUrl: require("../assets/images/n3-3.png"),
-          caption: "人工智能"
+          caption: "人工智能",
+          desc:
+            "今目标通过主线、文档、合作伙伴等应用，实现了建筑企业流程标准可控、项目远程管理、多方有效协同的需求，确保优秀项目经验的积累和传承。"
         },
         {
           imgUrl: require("../assets/images/n3-4.png"),
-          caption: "数据加工"
+          caption: "数据加工",
+          desc:
+            "今目标通过主线、文档、合作伙伴等应用，实现了建筑企业流程标准可控、项目远程管理、多方有效协同的需求，确保优秀项目经验的积累和传承。"
         },
         {
           imgUrl: require("../assets/images/n3-5.png"),
-          caption: "人工智能"
+          caption: "人工智能",
+          desc:
+            "今目标通过主线、文档、合作伙伴等应用，实现了建筑企业流程标准可控、项目远程管理、多方有效协同的需求，确保优秀项目经验的积累和传承。"
         },
         {
           imgUrl: require("../assets/images/n3-6.png"),
-          caption: "云计算"
+          caption: "云计算",
+          desc:
+            "今目标通过主线、文档、合作伙伴等应用，实现了建筑企业流程标准可控、项目远程管理、多方有效协同的需求，确保优秀项目经验的积累和传承。"
         },
         {
           imgUrl: require("../assets/images/n3-7.png"),
-          caption: "人工智能"
+          caption: "人工智能",
+          desc:
+            "今目标通过主线、文档、合作伙伴等应用，实现了建筑企业流程标准可控、项目远程管理、多方有效协同的需求，确保优秀项目经验的积累和传承。"
         },
         {
           imgUrl: require("../assets/images/n3-8.png"),
-          caption: "云计算"
+          caption: "云计算",
+          desc:
+            "今目标通过主线、文档、合作伙伴等应用，实现了建筑企业流程标准可控、项目远程管理、多方有效协同的需求，确保优秀项目经验的积累和传承。"
         }
       ]
     };
   },
-  methods: {
-    imgMoveStart(index) {
-      this.currentEnter = index;
-      this.currentLeave = null;
-    },
-    imgMoveEnd(index) {
-      this.currentLeave = index;
-      this.currentEnter = null;
-    }
-  }
+  methods: {}
 };
 </script>
 
@@ -106,12 +117,26 @@ h1::after {
   right: 100%;
 }
 .n3-bg {
+  position: relative;
   width: 286px;
   height: 200px;
   display: block;
   margin: auto;
   background-size: cover;
   background-position: 0 0;
+  overflow: hidden;
+}
+.n3-masking {
+  position: absolute;
+  width: 286px;
+  height: 200px;
+  transform: translateY(150px);
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: 0.3s ease-in;
+}
+.n3-bg :hover {
+  transform: translateY(0px);
+  transition: 0.3s ease-in;
 }
 .n3-content::after {
   content: "";
@@ -127,28 +152,22 @@ h1::after {
   width: 286px;
   margin: 0 6px 12px;
 }
-.n3-content ul li:hover {
-  font-weight: 700;
-}
-.n3-bg-caption {
+.n3-caption {
   position: relative;
   display: inline-block;
   font-size: 18px;
-  color: #383e63;
+  color: #ffffff;
   line-height: 25px;
-  margin-top: 10px;
-  margin-bottom: 40px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
-@keyframes enter {
-  0% {
-    background-position: 0 140px;
-  }
-  90% {
-    background-position: 0 3640px;
-  }
-  100% {
-    background-position: 0 3640px;
-  }
+.n3-desc {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 25px;
+  margin: 10px 20px;
 }
 </style>
 
