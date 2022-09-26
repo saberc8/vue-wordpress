@@ -1,11 +1,42 @@
-## vue快速搭建企业站,官网,静态页面
+# Nuxt 3 Minimal Starter
 
-基于方便的原则  每个组件插入即可用
+Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 
-> 引入第三方组件库包括normalize.css vue-awesome-swiper
+## Setup
 
-### 文件名称说明
+Make sure to install the dependencies:
 
-- R开头 响应式组件
-- N开头 非响应式组件
-- 图片均在src/assets/images文件夹下
+```bash
+# yarn
+yarn install
+
+# npm
+npm install
+
+# pnpm
+pnpm install --shamefully-hoist
+```
+
+## Development Server
+
+Start the development server on http://localhost:3000
+
+```bash
+npm run dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+npm run build
+```
+
+Locally preview production build:
+
+```bash
+npm run preview
+```
+
+Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
